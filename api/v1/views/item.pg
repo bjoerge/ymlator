@@ -1,0 +1,4 @@
+return nil if item.nil?
+node :item => item do
+  attributes :id, :key, :value, :updated_at
+end

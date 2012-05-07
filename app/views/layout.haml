@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %meta{ 'http-equiv' => "Content-Type", :content => "text/html; charset=utf-8" }
+
+    :javascript
+      if (typeof window.console == 'undefined') { window.console = {log: function() {}}; };
+
+    = yield_content(:javascript)
+
+    = yield_content(:css)
+
+    %link(rel="shortcut icon" href="/favicon.png")
+
+    %title Ymlator
+
+  %body
+    #notifier.alert(style="display:none")
+    .container
+      = yield

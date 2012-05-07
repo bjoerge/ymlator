@@ -1,0 +1,19 @@
+- content_for(:css) do
+  %link(href="#{stylesheet_path("item")}" rel="stylesheet" type="text/css")
+
+- content_for(:javascript) do
+  %script(src="#{javascript_path("pages/item")}")
+
+#summary.well
+  %h1= item.name
+  %a.btn.btn-inverse.right(href="./download" style="float:right") ⟱ Download
+  .meta
+    %span Created #{item.created_at.strftime("%Y-%m-%d %H:%M:%S")}
+    %span Updated #{item.updated_at.strftime("%Y-%m-%d %H:%M:%S")}
+  %p= item.description
+
+.well
+  %form#edit_form.form-horizontal
+    %input(id="item_key" type="hidden" value="#{item.key}")
+    - item.value.each do |key,val|
+      ~ render_key(key, val)

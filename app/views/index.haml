@@ -1,0 +1,15 @@
+- content_for(:css) do
+  %link(href="#{stylesheet_path("index")}" rel="stylesheet" type="text/css")
+
+- content_for(:javascript) do
+  %script(src="#{javascript_path("pages/index")}")
+
+%h1 Submit YAML
+
+%form#add_item(method="post")
+  .well
+    %div
+      %input(type="text" name="name" placeholder="Name (optional)")
+      %input(type="text" name="description" placeholder="Description (optional)" style="width: 100%")
+    #pastebin paste: "your YAML here"
+    %button.btn.btn-large.btn-primary(type="submit") Go ahead, create and edit
